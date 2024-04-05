@@ -1,0 +1,24 @@
+.pokeball-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Pour centrer l'image verticalement */
+    pointer-events: none;
+    cursor: pointer;
+  }
+  
+  @keyframes rotateY {
+    0% {
+      transform: rotateY(0deg);
+    }
+    50% {
+      transform: rotateY(180deg);
+    }
+    100% {
+      transform: rotateY(360deg);
+    }
+  }
+  
+  .pokeball {
+    animation: rotateY 5s infinite linear; /* Applique l'animation avec une durée de 5 secondes et en boucle */
+  }

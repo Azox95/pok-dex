@@ -1,0 +1,58 @@
+.home-container {
+  background-image: url('./src/assets/Images/17789_800x480.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Aligne les éléments sur l'axe vertical avec un espacement équivalent entre eux */
+  padding-top: 20px;
+}
+
+
+  .center-container {
+    display: flex;
+    justify-content: center; /* Aligne les éléments horizontalement au centre */
+    align-items: center; /* Aligne les éléments verticalement au centre */
+    height: 100%; /* Définit la hauteur du conteneur pour qu'il occupe toute la hauteur du parent */
+  }
+
+.welcome-text {
+  font-size: 2rem; /* Taille de la police */
+  font-weight: bold; /* Poids de la police */
+  color: #000000; /* Couleur du texte */
+  text-align: center; /* Centrage du texte */
+  margin-top: 50px; /* Marge supérieure */
+  font-family: 'Roboto', sans-serif;
+}
+
+.welcome-text-deux {
+  font-size: 3rem; /* Augmenter la taille de la police */
+  font-weight: bold;
+  color: #000000;
+  text-align: center;
+  margin-top: 50px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.welcome-text-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Définit la hauteur de l'élément à 100% de la hauteur de la vue */
+}
+
+.btn {
+  background-color: #000000; /* Couleur de fond */
+  color: #fff; /* Couleur du texte */
+  padding: 19px 20px; /* Espacement interne */
+  border: none; /* Supprime la bordure */
+  border-radius: 5px; /* Arrondi des coins */
+  cursor: pointer; /* Change le curseur au survol */
+  user-select: none;
+  font-size: 1.2rem;
+}
+
+.btn:hover {
+  background-color: #272727; /* Couleur de fond au survol */
+}

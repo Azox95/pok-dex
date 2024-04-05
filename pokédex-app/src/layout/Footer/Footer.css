@@ -1,0 +1,18 @@
+.footer {
+    background-color: #ff0000; /* Couleur de fond du footer */
+    padding: 20px 0; /* Espacement intérieur du footer (haut/bas: 20px, gauche/droite: 0) */
+    text-align: center; /* Centrage du contenu */
+    color: #ffffff; /* Couleur du texte */
+    position: static; /* Position fixe en bas de la page */
+    left: 0; /* Alignement à gauche */
+    bottom: 0; /* Alignement en bas */
+    width: 100%; /* Largeur à 100% */
+    padding: 60px 0;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  
+  .footer p {
+    margin-bottom: 0; /* Supprimer la marge en bas du paragraphe dans le footer */
+  }
+  
