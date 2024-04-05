@@ -42,7 +42,7 @@
 
 /* Optional: Add styles for the placeholder text */
 .search-input::placeholder {
-  color: #999;
+  color: #000000;
 }
 
 .pokedex-title {

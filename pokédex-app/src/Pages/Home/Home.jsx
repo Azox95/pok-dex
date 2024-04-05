@@ -15,7 +15,7 @@ function Home() {
       <h1 className="welcome-text-deux">Bienvenue sur le pokédex📲</h1>  
       <h1 className="welcome-text">Cliquer sur le boutons pour accéder au pokédex.</h1>          
       <div className="center-container">
-      <button id="pokedex-button" className="btn" data-href="/pokédex" onClick={handleButtonClick}>Pokédex</button>
+      <button id="pokedex-button" className="btn" data-href="/pokédex" onClick={handleButtonClick}>Pokédex</button>         
       </div>
     </div>
   </div>

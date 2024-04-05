@@ -12,7 +12,7 @@ function Pokédex() {
   useEffect(() => {
     const fetchPokemonData = async () => {
       try {
-        const response = await fetch('https://pokeapi.co/api/v2/pokemon');
+        const response = await fetch('https://pokeapi.co/api/v2/pokemon?offset=20&limit=20');
         if (!response.ok) {
           throw new Error('Failed to fetch Pokemon data');
         }
@@ -39,6 +39,19 @@ function Pokédex() {
     }
   };
 
+  const fetchPokemonCry = async (pokemonName) => {
+    try {
+      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
+      if (!response.ok) {
+        throw new Error('Failed to fetch Pokemon cry');
+      }
+      const data = await response.json();
+      return data.cries; // Assurez-vous que 'cries' est la bonne propriété contenant le lien vers le fichier audio
+    } catch (error) {
+      console.error(`Error fetching cry for ${pokemonName}:`, error);
+    }
+  };
+
   const handleReloadPokédex = () => {
     window.location.reload(); // Recharge la page
   };
@@ -56,9 +69,14 @@ function Pokédex() {
     setSearchTerm(event.target.value);
   };
 
-  const handlePokemonClick = (pokemon) => {
+  const handlePokemonClick = async (pokemon) => {
     history.push('/pokemon-details', { pokemon: pokemon });
-  };
+    const cry = await fetchPokemonCry(pokemon.name);
+    if (cry) {
+      const crySound = new Audio(cry);
+      crySound.play();
+    }
+};
 
   const toggleFavorite = (pokemonName) => {
     setPokemonList(prevList =>
@@ -75,10 +93,8 @@ function Pokédex() {
 
   return (
     <div>
-      {/* Contrôle du son en haut de la page */}
       <div className="audio-control-container">
         <button onClick={toggleMute}>{isMuted ? 'Unmute 🔊' : 'Mute 🔇'}</button>
-        {/* Ajoutez la balise audio avec une URL vers une musique de fond */}
         <audio controls autoPlay className="audio-control" muted={isMuted}>
           <source src="./src/assets/Musique/Générique français de la saison 1 de Pokemon.mp3" type="audio/mpeg" />
           Votre navigateur ne supporte pas l'élément audio.
@@ -91,7 +107,6 @@ function Pokédex() {
           <div key={index} className="pokemon-card" onClick={() => handlePokemonClick(pokemon)}>
             <img src={pokemon.sprites.front_default} alt={pokemon.name} />
             <h2>{pokemon.name}</h2>
-            {/* Bouton pour ajouter ou supprimer un Pokémon favori */}
             <button className="favorite-icon" onClick={() => toggleFavorite(pokemon.name)}>
               {pokemon.favorite ? '❤️' : '🤍'}
             </button>
